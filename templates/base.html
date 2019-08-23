@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href=" {% static 'stick-footer.css' %} ">
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            {% block main %}
+
+            {% endblock main %}
+        </div>
+    </div>
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">footer da aplicação2.</span>
+        </div>
+    </footer>
+    {% endblock footer %}
+</body>
+
+</html>

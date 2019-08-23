@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['management-clients.herokuapp.com']
+ALLOWED_HOSTS = ['management-clients.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'appCliente',
     'appHome',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [ # para o diretório dos arquivos staticos
+    'statics'
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
