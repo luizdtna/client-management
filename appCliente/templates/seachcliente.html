@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Seach Cliente</p>
+
+    <label>Cliente</label>
+    <input type="text">
+    <a href="{% url 'url_seach_client'  %}" class="btn btn-success">Go</a>
+    {% if seachperson in locals():  %}
+        print('asdasadasfafgasd')
+    {% endif %}
+</body>
+
+</html>

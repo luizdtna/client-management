@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import cliente, listar_pessoas, new_person, person_update, person_delete
+from .views import cliente, listar_pessoas, new_person, person_update, person_delete, seach_client
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,5 +27,6 @@ urlpatterns = [
     path('newperson', new_person, name="url_newperson"),
     path('personupdate/<int:id>/', person_update, name="url_person_update"),
     path('delete/<int:id>/', person_delete, name="url_person_delete"),
+    path('seachclient/<int:id>/', seach_client, name="url_seach_client"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # exibe a imagem em tempo de programação
 

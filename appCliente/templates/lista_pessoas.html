@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-sm">
-        
+
     </div>
     <div class="col-6">
         <h2>Lista de Clientes</h2>
@@ -17,15 +17,36 @@
     </div>
 </div>
 
+<p>Seach Cliente</p>
+<form method="post">
+  <div class="form-group">
+      {% csrf_token %}
+    <label for="first_name">first name</label>
+    <input type="text" class="form" id="first_name" name="first_name">
+
+      <label for="last_name">last name</label>
+    <input type="text" class="form" id="last_name" name="last_name">
+
+      <label for="age">Age</label>
+    <input type="number" class="form" id="age" name="age">
+      <button type="submit">Pesquisar</button>
+  </div>
+</form>
+{% if persons %}
 <table>
-    {% for person in persons %}
-    <tr class="table">
-        <td>
-            <a href="{% url 'url_person_update' person.id %}">{{ person.first_name }} {{person.last_name}}</a>
-            <a href="{% url 'url_person_delete' person.id %}" class="btn btn-danger">Deletar</a>
-        </td>
-    </tr>
-    {%endfor%}
+
+        {% for person in persons %}
+        <tr class="table">
+            <td>
+                <a href="{% url 'url_person_update' person.id %}">{{ person.first_name }} {{person.last_name}}</a>
+                <a href="{% url 'url_person_delete' person.id %}" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+        {%endfor%}
+
 </table>
+{% else %}
+    <p>Sem registros</p>
+{% endif %}
 <a href="{% url 'url_newperson' %}" class="btn btn-primary">New person</a>
 {% endblock main %}
